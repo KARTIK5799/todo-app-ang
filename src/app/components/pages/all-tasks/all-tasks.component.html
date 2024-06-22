@@ -1,13 +1,11 @@
-<h2 class="font-bold  text-xl">My Day</h2>
-  <div class="text-blue-500">
-    <span>Sunday,</span>
-    <span>Dec 21,2023</span>
-  </div>
-  <div class="flex mt-6">
-<input type="text" class="w-full h-16 p-4 rounded" placeholder="type your task">
-  </div>
-  <div class="flex mt-6 flex-col">
-    <h2 class="font-bold  text-xl">My Tasks</h2>
-    <p class="w-full h-16 p-4 rounded bg-white flex items-center shadow" > task 1</p>
-
-      </div>
+<app-page-title></app-page-title>
+<div class="flex mt-6">
+  <input
+    type="text"
+    class="w-full h-16 p-4 rounded"
+    placeholder="type your task"
+    [(ngModel)]="newTask"
+    (keydown.enter)="addTask()"
+  />
+</div>
+<app-task-list [taskList]="taskList" (complete)="onComplete($event)" (important)="onImportant($event)"></app-task-list>
